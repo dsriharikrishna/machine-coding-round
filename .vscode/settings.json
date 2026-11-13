@@ -1,0 +1,5 @@
+{
+  "typescript.tsdk": "02-react-tailwind/node_modules/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true
+}
+

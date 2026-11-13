@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task 01: Searchable List with Debouncing (Vanilla JS)</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <span class="badge">Machine Coding #01</span>
+      <h1>Searchable List with Debouncing</h1>
+      <p class="subtitle">Vanilla HTML, CSS & JavaScript Implementation</p>
+    </header>
+
+    <section class="search-card">
+      <div class="search-controls">
+        <div class="input-wrapper">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search programming languages, tools, frameworks..."
+            autocomplete="off"
+            aria-label="Search items"
+          />
+          <button id="clearBtn" class="clear-btn" aria-label="Clear search" hidden>&times;</button>
+        </div>
+
+        <div class="debounce-control">
+          <label for="delayRange">Debounce Delay: <strong id="delayValue">350ms</strong></label>
+          <input type="range" id="delayRange" min="0" max="1000" step="50" value="350" />
+        </div>
+      </div>
+
+      <div class="metrics-bar">
+        <div class="metric">
+          <span class="metric-label">Input Events Fired:</span>
+          <span class="metric-value" id="keystrokeCount">0</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Debounced Searches Run:</span>
+          <span class="metric-value" id="searchCount">0</span>
+        </div>
+        <div class="metric">
+          <span class="metric-label">Results:</span>
+          <span class="metric-value" id="resultCount">0</span>
+        </div>
+        <div class="status-indicator" id="searchStatus">Idle</div>
+      </div>
+
+      <div class="results-container" role="region" aria-live="polite">
+        <ul id="itemsList" class="items-list"></ul>
+        <div id="emptyState" class="empty-state" hidden>
+          <p>No matching results found for "<span id="emptyQuery"></span>"</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
